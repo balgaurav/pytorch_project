@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Track machine-learning experiments with clarity." />
+    <title>Experiment Atlas</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">EA</div>
+          <div>
+            <strong>Experiment Atlas</strong>
+            <span>ML workbench</span>
+          </div>
+        </div>
+        <nav aria-label="Primary navigation">
+          <a class="nav-link active" href="#overview"><span>◈</span> Overview</a>
+          <a class="nav-link" href="#experiments"><span>◌</span> Experiments</a>
+          <a class="nav-link" href="#notes"><span>✦</span> Research notes</a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="status-dot"></div>
+          <div>
+            <span class="eyebrow">Workspace status</span>
+            <strong id="health-status">Checking API…</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <span class="eyebrow">Thursday, July 10, 2026</span>
+            <h1>Good morning, Gaurav.</h1>
+          </div>
+          <button class="primary-button" id="open-form">
+            <span>+</span> Log experiment
+          </button>
+        </header>
+
+        <section class="hero-card" id="overview">
+          <div>
+            <span class="eyebrow accent">Research pulse</span>
+            <h2>Make every run<br /><em>worth remembering.</em></h2>
+            <p>Capture the signal behind your models, not just the final score.</p>
+          </div>
+          <div class="hero-orbit" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit-core">◎</div>
+          </div>
+        </section>
+
+        <section class="metrics-grid" aria-label="Experiment summary">
+          <article class="metric-card">
+            <span class="eyebrow">Total runs</span>
+            <strong id="metric-total">—</strong>
+            <span class="metric-note">Across this workspace</span>
+          </article>
+          <article class="metric-card">
+            <span class="eyebrow">Completed</span>
+            <strong id="metric-completed">—</strong>
+            <span class="metric-note positive">↑ Healthy signal</span>
+          </article>
+          <article class="metric-card highlight">
+            <span class="eyebrow">Best accuracy</span>
+            <strong id="metric-best">—</strong>
+            <span class="metric-note">Highest recorded score</span>
+          </article>
+          <article class="metric-card">
+            <span class="eyebrow">In progress</span>
+            <strong id="metric-running">—</strong>
+            <span class="metric-note">Worth checking back on</span>
+          </article>
+        </section>
+
+        <section class="workspace-section" id="experiments">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">Your workspace</span>
+              <h2>Recent experiments</h2>
+            </div>
+            <div class="toolbar">
+              <label class="search-box">
+                <span>⌕</span>
+                <input id="search" type="search" placeholder="Search runs" aria-label="Search experiments" />
+              </label>
+              <select id="status-filter" aria-label="Filter by status">
+                <option value="all">All statuses</option>
+                <option value="running">Running</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Experiment</th>
+                  <th>Model / dataset</th>
+                  <th>Status</th>
+                  <th>Metric</th>
+                  <th>Logged</th>
+                </tr>
+              </thead>
+              <tbody id="experiment-rows"></tbody>
+            </table>
+            <div class="empty-state" id="empty-state" hidden>No experiments match that search.</div>
+          </div>
+        </section>
+
+        <section class="notes-callout" id="notes">
+          <div class="notes-icon">✎</div>
+          <div>
+            <span class="eyebrow">A better research habit</span>
+            <h3>Write down the why while it is still fresh.</h3>
+            <p>The most useful experiment detail is often the decision you made before pressing run.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="experiment-dialog">
+      <form method="dialog" id="experiment-form">
+        <div class="dialog-heading">
+          <div>
+            <span class="eyebrow accent">New record</span>
+            <h2>Log an experiment</h2>
+          </div>
+          <button class="close-button" value="cancel" aria-label="Close dialog">×</button>
+        </div>
+        <label>Experiment name<input name="name" required placeholder="e.g. Attention head ablation" /></label>
+        <div class="form-grid">
+          <label>Model<input name="model" required placeholder="e.g. ResNet-18" /></label>
+          <label>Dataset<input name="dataset" required placeholder="e.g. CIFAR-10" /></label>
+        </div>
+        <div class="form-grid">
+          <label>Status<select name="status"><option value="running">Running</option><option value="completed">Completed</option><option value="failed">Failed</option></select></label>
+          <label>Metric<input name="metric" type="number" step="0.1" placeholder="e.g. 92.4" /></label>
+        </div>
+        <label>Notes<textarea name="notes" rows="3" placeholder="What did you change, and what are you watching for?"></textarea></label>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button class="secondary-button" value="cancel">Cancel</button>
+          <button class="primary-button" value="default" type="submit">Save experiment</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
