@@ -8,6 +8,7 @@ It gives you:
 - an API for creating and filtering experiments
 - lightweight run metadata: model, dataset, status, metric, and notes
 - a focused foundation for future PyTorch integrations
+- a test command and GitHub Actions workflow for safe iteration
 
 ## Run locally
 
@@ -18,10 +19,18 @@ npm run dev
 
 Open http://localhost:4000.
 
+Run the API checks with:
+
+```bash
+npm test
+```
+
 ## Project shape
 
 - `server/index.js` serves the API and the browser app
 - `public/` contains the responsive frontend
 - `data/experiments.json` is the local development store
+- `test/api.test.js` covers the health and listing endpoints
+- `.github/workflows/ci.yml` runs tests on pushes and pull requests
 
-This project intentionally starts with a small surface area so each future commit can represent a real product improvement.
+This project intentionally starts with a small surface area so each future commit can represent a real product improvement. See [CONTRIBUTING.md](CONTRIBUTING.md) for the working agreement and suggested next steps.
