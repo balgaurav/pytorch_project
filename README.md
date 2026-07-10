@@ -33,4 +33,11 @@ npm test
 - `test/api.test.js` covers the health and listing endpoints
 - `.github/workflows/ci.yml` runs tests on pushes and pull requests
 
+## Suggested workflow
+
+1. Start with a hypothesis and log it as a running experiment.
+2. Add the model, dataset, metric, and a short note about the change.
+3. Update the run status when the result is known.
+4. Use the notes to decide what the next commit should improve.
+
 This project intentionally starts with a small surface area so each future commit can represent a real product improvement. See [CONTRIBUTING.md](CONTRIBUTING.md) for the working agreement and suggested next steps.
