@@ -1,0 +1,15 @@
+{
+  "name": "experiment-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A lightweight full-stack dashboard for tracking machine-learning experiments.",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

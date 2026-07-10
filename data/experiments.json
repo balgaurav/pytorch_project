@@ -1,0 +1,50 @@
+[
+  {
+    "id": "exp-001",
+    "name": "Baseline transformer",
+    "model": "DistilBERT",
+    "dataset": "AG News",
+    "status": "completed",
+    "metric": 91.4,
+    "metricLabel": "accuracy",
+    "duration": "18m 42s",
+    "createdAt": "2026-07-09T14:12:00.000Z",
+    "notes": "Strong baseline after three epochs."
+  },
+  {
+    "id": "exp-002",
+    "name": "Learning-rate sweep",
+    "model": "DistilBERT",
+    "dataset": "AG News",
+    "status": "running",
+    "metric": 89.8,
+    "metricLabel": "accuracy",
+    "duration": "11m 08s",
+    "createdAt": "2026-07-09T16:45:00.000Z",
+    "notes": "Testing 1e-5, 3e-5, and 5e-5."
+  },
+  {
+    "id": "exp-003",
+    "name": "Augmented images",
+    "model": "ResNet-18",
+    "dataset": "CIFAR-10",
+    "status": "completed",
+    "metric": 84.2,
+    "metricLabel": "accuracy",
+    "duration": "42m 16s",
+    "createdAt": "2026-07-08T10:05:00.000Z",
+    "notes": "Random crop and horizontal flip improved recall."
+  },
+  {
+    "id": "exp-004",
+    "name": "Checkpoint recovery",
+    "model": "TinyLlama",
+    "dataset": "WikiText-2",
+    "status": "failed",
+    "metric": 0,
+    "metricLabel": "loss",
+    "duration": "3m 29s",
+    "createdAt": "2026-07-07T09:30:00.000Z",
+    "notes": "Out-of-memory on the second validation pass."
+  }
+]
